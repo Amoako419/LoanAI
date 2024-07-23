@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
-import pickle
+import joblib
 import numpy as np
-import xgboost as xgb
 
 app = Flask(__name__)
 
 with open('xgb_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+    model = joblib.load(f)
 
 @app.route('/predict', methods=['POST'])
 def predict():
