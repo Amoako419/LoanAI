@@ -92,15 +92,13 @@ class _PredictionWidgetState extends State<PredictionWidget> {
         double.parse(_controller10.text),
         double.parse(_controller11.text),
       ];
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:5000/predict'),
+       final response = await http.get(
+        Uri.parse('http://localhost:5000/predict'),
         headers: <String, String>{
-          'Content-Type': 'application/json;',
+          'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode(<String, dynamic>{
-          'features': features,
-        }),
       );
+
 
       if (response.statusCode == 200) {
         setState(() {
