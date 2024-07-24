@@ -24,17 +24,19 @@ class MyApp extends StatelessWidget {
                       title: Text('Feature Input Instructions'),
                       content: Text(
                           'Please enter values for the following features:\n\n'
-                          '1. Feature 1\n'
-                          '2. Feature 2\n'
-                          '3. Feature 3\n'
-                          '4. Feature 4\n'
-                          '5. Feature 5\n'
-                          '6. Feature 6\n'
-                          '7. Feature 7\n'
-                          '8. Feature 8\n'
-                          '9. Feature 9\n'
-                          '10. Feature 10\n'
-                          '11. Feature 11\n'),
+                          '1. Number of dependents\n'
+                          '2. Education (Gradute is 0, Not is 1)\n'
+                          '3. Self employed(Self_employed is 1, Not is 0)\n'
+                          '4. Income per year\n'
+                          '5. Amount requested\n'
+                          '6. Time to repay the loan (in Months)\n'
+                          '7. Cibil_score\n'
+                          '8. Residental Assets Value\n'
+                          '9. Commerical Assets Value\n'
+                          '10. Luxury Assets Value\n'
+                          '11. Bank Assets value\n'
+                          'If the predictions is 0 then donot approve the loan\n'
+                          'If the predictions is 1 then Approve the loan\n'),
                       actions: <Widget>[
                         TextButton(
                           child: Text('OK'),
@@ -130,7 +132,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller1,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 1',
+                  labelText: 'Enter the number of dependent on the applicant',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -141,7 +143,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller2,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 2',
+                  labelText: 'Graduate or Not',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -152,7 +154,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller3,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 3',
+                  labelText: 'Self Employed or Not',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -163,7 +165,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller4,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 4',
+                  labelText: 'Income per annum',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -174,7 +176,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller5,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 5',
+                  labelText: 'Loan Amount Applied',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -185,7 +187,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller6,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 6',
+                  labelText: 'Loan Terms(in Months)',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -196,7 +198,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller7,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 7',
+                  labelText: 'Cibil score',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -207,7 +209,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller8,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 8',
+                  labelText: 'Residential Assets Value',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -218,7 +220,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller9,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 9',
+                  labelText: 'Commerical Assets Value',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -229,7 +231,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller10,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 10',
+                  labelText: 'Luxury Assets Value',
                 ),
                 keyboardType: TextInputType.number,
               ),
@@ -240,7 +242,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
                 controller: _controller11,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Enter feature value 11',
+                  labelText: 'Bank Asset Value',
                 ),
                 keyboardType: TextInputType.number,
               ),
