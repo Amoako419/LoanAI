@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('LoanAI'),
+          
           actions: [
             IconButton(
               icon: Icon(Icons.info),
@@ -294,10 +295,7 @@ class _PredictionWidgetState extends State<PredictionWidget> {
   child: Text('Predict'),
 ),
             SizedBox(height: 20),
-            Text(
-              'Prediction: $_prediction',
-              style: TextStyle(fontSize: 24),
-            ),
+          
           ],
         ),
       ),
