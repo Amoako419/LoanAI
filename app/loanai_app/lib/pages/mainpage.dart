@@ -95,29 +95,51 @@ class _PredictionWidgetState extends State<PredictionWidget> {
         double.parse(_controller11.text),
       ];
        final response = await http.get(
-        Uri.parse('http://localhost:5000/predict'),
+        Uri.parse('http://127.0.0.1:5000/predict'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
 
-
+      String prediction;
       if (response.statusCode == 200) {
-        setState(() {
-          _prediction = jsonDecode(response.body)['prediction'].toString();
-        });
+        prediction = jsonDecode(response.body)['prediction'].toString();
       } else {
-        setState(() {
-          _prediction = 'Error: ${response.reasonPhrase}';
-        });
+        prediction = 'Error: ${response.reasonPhrase}';
       }
+
+      _showDialog(prediction);
     } catch (e) {
-      setState(() {
-        _prediction = 'Error: $e';
-      });
+      _showDialog('Error: $e');
     }
   }
 
+  void _showDialog(String message) {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button to dismiss dialog
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Prediction Result'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(message),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -248,10 +270,29 @@ class _PredictionWidgetState extends State<PredictionWidget> {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _getPrediction,
-              child: Text('Predict'),
-            ),
+          ElevatedButton(
+  onPressed: _getPrediction,
+  style: ElevatedButton.styleFrom(
+    // Customize the background color
+    backgroundColor: Colors.blue, 
+    // Customize the text color
+    foregroundColor: Colors.white,
+    // Customize the shape, for example, rounded corners
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10), // Adjust the radius for desired roundness
+    ),
+    // Customize the padding
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+    // Customize the text style
+    textStyle: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
+    // Customize the elevation (shadow)
+    elevation: 5, 
+  ),
+  child: Text('Predict'),
+),
             SizedBox(height: 20),
             Text(
               'Prediction: $_prediction',
@@ -262,4 +303,5 @@ class _PredictionWidgetState extends State<PredictionWidget> {
       ),
     );
   }
+  
 }
