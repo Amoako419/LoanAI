@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('LoanAI'),
-          
+          title: const Text('LoanAI',style: TextStyle(fontFamily: 'Montserrat',color: Colors.white)),
+          backgroundColor: Colors.blue,
           actions: [
             IconButton(
               icon: Icon(Icons.info),
@@ -148,7 +148,8 @@ class _PredictionWidgetState extends State<PredictionWidget> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: <Widget>[Text('Fill the forms for the applicant',style: TextStyle(fontFamily: 'Eden',fontSize: 16),),
+          Text('LEAVE NO TEXTFIELD EMPTY',style: TextStyle(color: Colors.red),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: TextField(
